@@ -1,0 +1,22 @@
+name: test
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm install
+      - run: npx tsc --noEmit
+      - run: npm run build
+      - run: npm run test:dist
+      # The TypeScript suite needs type stripping (Node 24).
+      - if: matrix.node == 24
+        run: npm test

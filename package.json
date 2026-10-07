@@ -14,10 +14,10 @@
     "parser"
   ],
   "license": "MIT",
-  "author": "__AUTHOR__",
+  "author": "kofiadeyemiq",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/__GH_OWNER__/gitlab-rules-if.git"
+    "url": "git+https://github.com/quietpelican42/gitlab-rules-if.git"
   },
   "type": "module",
   "engines": {
